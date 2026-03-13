@@ -5,13 +5,21 @@ const { CartPage } = require('../../pages/CartPage');
 
 //  Cart  step 
 // Session is already initialised
-
 Given('I am signed in as a standard user', async function () {
   this.inventory = new InventoryPage(this.page);
   await this.page.goto('/inventory.html');
+
+  // Re-login if session expired
+  if (!this.page.url().includes('inventory')) {
+    const { username, password } = this.credentials.standard;
+    await this.page.getByTestId('username').fill(username);
+    await this.page.getByTestId('password').fill(password);
+    await this.page.getByTestId('login-button').click();
+    await this.page.waitForURL('**/inventory.html');
+  }
+
   await this.inventory.assertLoaded(expect);
 });
-
 //  Inventory / Add to cart steps 
 
 When('I add {string} to the cart', async function (name) {

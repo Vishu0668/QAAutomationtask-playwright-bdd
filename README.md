@@ -1,6 +1,5 @@
-# SauceDemo Automation Framework
 
-Playwright + Cucumber BDD + Allure — JavaScript
+Playwright + Cucumber BDD + Allure 
 
 > https://www.saucedemo.com
 

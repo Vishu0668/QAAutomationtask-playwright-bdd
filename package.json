@@ -1,0 +1,27 @@
+{
+  "name": "saucedemo-playwright-allure-js-bdd",
+  "version": "3.0.0",
+  "private": true,
+  "description": "SauceDemo automation: Playwright (JavaScript CJS) + POM + Allure + Cucumber (Gherkin) on modern stack",
+  "type": "commonjs",
+  "scripts": {
+    "preinstall": "node -v && npm -v",
+    "install:playwright": "npx playwright install --with-deps",
+    "bdd": "node scripts/run-bdd.js",
+    "bdd:smoke": "node scripts/run-bdd.js --profile smoke",
+    "bdd:regression": "node scripts/run-bdd.js --profile regression",
+    "bdd:headed": "node scripts/bdd-headed.js",
+    "allure:generate": "node scripts/allure-generate.js",
+    "allure:open": "node scripts/allure-open.js",
+    "allure:serve": "node scripts/allure-serve.js"
+  },
+  "devDependencies": {
+    "@cucumber/cucumber": "^10.8.0",
+    "@cucumber/messages": "^25.0.1",
+    "@playwright/test": "^1.43.0",
+    "allure-commandline": "^2.29.0",
+    "allure-cucumberjs": "^3.6.0",
+    "dotenv": "^16.4.5",
+    "playwright": "^1.43.0"
+  }
+}
